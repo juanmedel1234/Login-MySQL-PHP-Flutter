@@ -31,10 +31,10 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController controlContrasena = new TextEditingController();
 
   Future<List> obtenerUsuario() async {
-    var url = "http://192.168.0.11/pruebas/obtenerUsuario.php";
-    final response = await http.post(url, body: {
-      "usuario": controlUsuario.text,
-      "contrasena": controlContrasena.text
+    var url = "http://www.penedescable.es/flutterConsultarUsuarios.php";
+    final response = await http.post(Uri.parse(url), body: {
+      "username": controlUsuario.text,
+      "password": controlContrasena.text
     });
 
     if(response.body == "CORRECTO") {
